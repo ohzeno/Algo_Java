@@ -19,8 +19,15 @@ def conversion(lines):
         if r'//' in line:
             if "br = new BufferedReader(new InputStreamReader(System.in));" in line:
                 line = line.replace("//", "")
-            else:
+            elif line.lstrip().startswith(r'//'):
                 continue
+            else:
+                while r'//' in line:
+                    ridx = line.rfind(r'//')
+                    if line[ridx-1:ridx+2] != "'//":
+                        line = line[:line.rfind(r'//')].rstrip()
+                    else:
+                        break
         if line.startswith("}"):
             new_codes.append("}")
             break
