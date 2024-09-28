@@ -1,7 +1,6 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/17682
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
 constraints:
